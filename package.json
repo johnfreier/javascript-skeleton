@@ -1,0 +1,18 @@
+{
+  "name":"javascript-skeleton",
+  "version":"0.0.0",
+  "description":"Sample javascript skeleton",
+  "private": true,
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bower": "1.4.1",
+    "jasmine-node": "1.14.5",
+    "jquery": "2.1.4",
+    "jsdom": "3.1.2",
+    "knockout": "3.3.0"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}

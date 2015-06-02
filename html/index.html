@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		
+		<script src="../scripts/lib/requirejs/require.js"></script>
+		
+
+		
+		<script type="text/javascript">
+		/*<![CDATA[*/
+
+		        require.config({
+			    	baseUrl: '../scripts/',
+			    	paths: {
+			    		jquery: 'lib/jquery/dist/jquery',
+			    		knockout: 'lib/knockout/dist/knockout',
+			    		mapping: 'lib/knockout-mapping/knockout.mapping'
+			    	},
+			    	deps: ['knockout', 'mapping'],
+			    	callback: function(ko, mapping) {
+			    		ko.mapping = mapping;
+			    	}
+			    });
+			    
+			    require(['jquery', 'knockout', '../scripts/model/exampleModel', '../scripts/service/jqueryService'], function($, ko, ExampleModel, JQueryService) {
+	
+			    	var example = new ExampleModel();
+			    	var jqueryService = new JQueryService();
+			    	
+			    	example.retreivePost = function() {
+			    		
+			    		$.getJSON(example.getPost(), function(data) {
+				    		ko.mapping.fromJS(data, {}, example);
+				    	});
+			    		
+			    	};
+			    	
+			    	example.retreivePost();
+			    	ko.applyBindings(example);
+			    	
+			    	jqueryService.changeButtonId();
+			    	
+			    });
+		           
+		/*]]>*/
+		</script>
+	
+	</head>
+	
+	<body>
+	
+		<div layout:fragment="content">
+		
+			RequireJS, KnockoutJS & JQuery
+			<p>Post Id: <input data-bind="textInput: id" /><button data-bind="click: getPost">Click me</button></p>
+			<p>Title: <strong data-bind="text: title"></strong></p>
+			<p>Body: <strong data-bind="text: body"></strong></p>
+			<p><button id="nextButton" data-bind="click: getNextPost">Next</button></p>
+		
+		</div>
+	
+	</body>
+	
+</html>

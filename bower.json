@@ -1,0 +1,25 @@
+{
+  "name": "jskeleton",
+  "version": "0.0.0",
+  "authors": [
+    "jfreier <jfreier@johnfreier.com>"
+  ],
+  "description": "soon to come",
+  "keywords": [
+    "services"
+  ],
+  "license": "MIT",
+  "homepage": "localhost",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "scripts/lib"
+  ],
+  "dependencies": {
+    "jquery": "2.1.3",
+    "knockout": "3.3.0",
+    "knockout-mapping": "2.4.1",
+    "requirejs": "2.1.17"
+  }
+}
