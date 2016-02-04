@@ -1,4 +1,4 @@
-require(['jquery', 'jsdom', 'scripts/service/jqueryService.js'], function($, jsdom, JQueryService) {
+require(['jquery', 'jsdom', 'service/jqueryService'], function($, jsdom, JQueryService) {
 	
 	describe('JQueryService Tests', function() {
 		
@@ -15,7 +15,21 @@ require(['jquery', 'jsdom', 'scripts/service/jqueryService.js'], function($, jsd
 			
 			expect($("#nextButton").html()).toBe('Ok');
 			
-		});		
+		});
+
+		it('Create a new blank headless browser.', function() {
+			
+			// Create headless DOM model.
+			$ = blankPage();
+			$('body').append('<button id="nextButton">Hello</button>');
+			
+			var jqueryService = new JQueryService($);
+
+			jqueryService.changeButtonId();
+			
+			expect($("#nextButton").html()).toBe('Ok');
+			
+		});	
 	
 	});
 	

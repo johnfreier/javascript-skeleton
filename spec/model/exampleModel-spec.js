@@ -1,4 +1,4 @@
-require(['scripts/model/exampleModel.js'], function(ExampleModel) {
+require(['model/exampleModel'], function(ExampleModel) {
 	
 	describe('Example Model Tests should work with Knockout requirements.', function() {
 		

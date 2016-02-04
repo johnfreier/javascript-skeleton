@@ -40,7 +40,9 @@ requirejsOrig.config({
  baseUrl: baseUrl,
  nodeRequire: require,
  paths: {
-  cs: csPath
+  cs: csPath,
+  service: '../../scripts/service', 
+  model: '../../scripts/model'
  }
 });
 

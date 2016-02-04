@@ -11,3 +11,28 @@ eval(require('fs').readFileSync(baseUrl + '../requirejs-wrapper-template.js', 'u
 
 // This is our indicator that this custom setup script has run
 var setupHasRun = true;
+
+function blankPage() {
+	jsdom = require('jsdom');
+	$ = require('jquery');
+	return $(jsdom.jsdom('<html><head></head><body></body></html>').defaultView);
+}
+
+function loadPage(src) {
+	fs = require('fs');
+	jsdom = require('jsdom');
+	$ = require('jquery');
+	var htmlSource = fs.readFileSync(src, 'utf8');
+	return $(jsdom.jsdom(htmlSource).defaultView);
+}
+
+function loadSrc(src) {
+	fs = require('fs');
+	return fs.readFileSync(src, 'utf8');
+}
+
+function evalJS(src) {
+	fs = require('fs');
+	var javaScriptSrc = fs.readFileSync(src, 'utf8');
+	eval(javaScriptSrc);
+}
